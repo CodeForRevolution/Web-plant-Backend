@@ -9,7 +9,9 @@ app.use(cors({
 app.use(express.json());
 app.use(cookieParser());
 const errormiddleware=require("./middleware/error")
-
+app.get("/",(req,res,next)=>{
+  res.send("<h1>WellCome to Web Plant Pvt. Ltd. </h1>")
+})
 app.use("/api/v1/user/",require("./Route/userRoute"));//This structure should be followed as of now we are making it simple
 app.use("/api/v1/task/",require("./Route/taskRoute"));//This structure should be followed as of now we are making it simple
 
