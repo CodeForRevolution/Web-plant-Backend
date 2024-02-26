@@ -114,10 +114,7 @@ exports.deleteTask = catchAsyncError(async (req, res, next) => {
 
 module.exports.completed = catchAsyncError(async (req, res, next) => {
   const date = new Date();
-  console.log("Date", date);
-
   const task = await Task.findOne({ _id: req.params.id });
-  console.log("your task", task);
   task.isCompleted = true;
   task.completedDate = new Date();
   await task.save();
